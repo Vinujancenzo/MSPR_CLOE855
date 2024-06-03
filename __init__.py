@@ -83,7 +83,7 @@ def user_authentification():
     if request.method == 'POST':
         if request.form['username'] == 'user' and request.form['password'] == '12345':
             session['authentifie'] = True
-            return redirect(url_for('fiche_nom'))
+            return redirect(url_for('lecture'))
         else:
             return render_template('user_auth.html', error=True)
 
