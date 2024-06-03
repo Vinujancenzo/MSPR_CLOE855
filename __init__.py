@@ -81,9 +81,9 @@ def enregistrer_client():
 @app.route('/user_authentification', methods=['GET', 'POST'])
 def user_authentification():
     if request.method == 'POST':
-        if request.form['username'] == '${{ secrets.USER_AUTH }' and request.form['password'] == '12345':
+        if request.form['username'] == ${{ secrets.USER_AUTH } and request.form['password'] == ${{ secrets.USER_PASSWD }:
             session['authentifie'] = True
-            return redirect(url_for('ulecture'))
+            return redirect(url_for('lecture'))
         else:
             return render_template('user_auth.html', error=True)
 
