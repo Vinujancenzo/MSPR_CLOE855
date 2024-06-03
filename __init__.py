@@ -78,42 +78,27 @@ def enregistrer_client():
     return redirect('/consultation/')  # Rediriger vers la page d'accueil après l'enregistrement
 
 
-
-"""@app.route('/ulecture')
-def ulecture():
-    if not u_est_authentifie():
-        # Rediriger vers la page d'authentification si l'utilisateur n'est pas authentifié
-        return redirect(url_for('user_authentification'))
-
-    return redirect(url_for('fiche_nom/DUPONT'))
-
-     if not u_est_authentifie():
-        # Rediriger vers la page d'authentification si l'utilisateur n'est pas authentifié
-        return redirect(url_for('authentification'))
-
-"""
-
 @app.route('/user_authentification', methods=['GET', 'POST'])
 def user_authentification():
     if request.method == 'POST':
         if request.form['username'] == 'user' and request.form['password'] == '12345':
             session['authentifie'] = True
-            return redirect(url_for('fiche_nom/<post_nom>'))
+            return redirect(url_for('lecture'))
         else:
             return render_template('user_auth.html', error=True)
 
     return render_template('user_auth.html', error=False)
 
 @app.route('/fiche_nom/<post_nom>')
-     def Readfiche_nom(post_nom):
-            conn = sqlite3.connect('database.db')
-            cursor = conn.cursor()
-            cursor.execute('SELECT * FROM clients WHERE nom = ?', (post_nom,))
-            data = cursor.fetchall()
-            conn.close()
-# Rendre le template HTML et transmettre les données
-return render_template('name_data.html', data=data)
-            
+def Readfiche_nom(post_nom):
+    conn = sqlite3.connect('database.db')
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM clients WHERE nom = ?', (post_nom,))
+    data = cursor.fetchall()
+    conn.close()
+    # Rendre le template HTML et transmettre les données
+    return render_template('name_data.html', data=data)
+    
 
 if __name__ == "__main__":
   app.run(debug=True)
