@@ -25,7 +25,7 @@ def lecture():
   # Si l'utilisateur est authentifié
     return "<h2>Bravo, vous êtes authentifié</h2>"
 
-@app.route('/authentification', methods=['GET', 'POST'])
+"""@app.route('/authentification', methods=['GET', 'POST'])
 def authentification():
     if request.method == 'POST':
         # Vérifier les identifiants
@@ -37,7 +37,7 @@ def authentification():
             # Afficher un message d'erreur si les identifiants sont incorrects
             return render_template('formulaire_authentification.html', error=True)
 
-    return render_template('formulaire_authentification.html', error=False)
+    return render_template('formulaire_authentification.html', error=False)"""
 
 @app.route('/fiche_client/<int:post_id>')
 def Readfiche(post_id):
