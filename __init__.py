@@ -87,7 +87,7 @@ def ulecture():
 
     return redirect(url_for('fiche_nom/DUPONT'))
 
-     if not est_authentifie():
+     if not u_est_authentifie():
         # Rediriger vers la page d'authentification si l'utilisateur n'est pas authentifié
         return redirect(url_for('authentification'))
 
@@ -105,15 +105,18 @@ def user_authentification():
     return render_template('user_auth.html', error=False)
 
 @app.route('/fiche_nom/<post_nom>')
-def Readfiche_nom(post_nom):
-    conn = sqlite3.connect('database.db')
-    cursor = conn.cursor()
-    cursor.execute('SELECT * FROM clients WHERE nom = ?', (post_nom,))
-    data = cursor.fetchall()
-    conn.close()
-    # Rendre le template HTML et transmettre les données
-    return render_template('name_data.html', data=data)
-    
+if not u_est_authentifie():
+        return redirect(url_for('user_authentification'))
+else:
+     def Readfiche_nom(post_nom):
+            conn = sqlite3.connect('database.db')
+            cursor = conn.cursor()
+            cursor.execute('SELECT * FROM clients WHERE nom = ?', (post_nom,))
+            data = cursor.fetchall()
+            conn.close()
+# Rendre le template HTML et transmettre les données
+return render_template('name_data.html', data=data)
+            
 
 if __name__ == "__main__":
   app.run(debug=True)
