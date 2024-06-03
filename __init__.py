@@ -84,16 +84,18 @@ def ulecture():
         return redirect(url_for('user_authentification'))
 
     return "<h2>Bravo, vous êtes authentifié</h2>"
-
-
+    
 @app.route('/user_authentification', methods=['GET', 'POST'])
-def user_authentification():
+def uauthentification():
     if request.method == 'POST':
         if request.form['username'] == 'user' and request.form['password'] == '12345':
             session['authentifie'] = True
             return redirect(url_for('ulecture'))
         else:
             return render_template('user_auth.html', error=True)
+
+    return render_template('user_auth.html', error=False)
+
 
     return render_template('user_auth.html', error=False)
 
