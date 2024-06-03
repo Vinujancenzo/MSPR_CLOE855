@@ -78,6 +78,17 @@ def enregistrer_client():
     return redirect('/consultation/')  # Rediriger vers la page d'accueil après l'enregistrement
 
 
+@app.route('/user_authentification', methods=['GET', 'POST'])
+def authentification():
+    if request.method == 'POST':
+        if request.form['username'] == 'user' and request.form['password'] == '12345':
+            session['authentifie'] = True
+            return redirect(url_for('fiche_nom'))
+        else:
+            return render_template('user_auth.html', error=True)
+
+    return render_template('user_auth.html', error=False)
+
 @app.route('/fiche_nom/<post_nom>')
 def Readfiche_nom(post_nom):
     conn = sqlite3.connect('database.db')
@@ -87,6 +98,7 @@ def Readfiche_nom(post_nom):
     conn.close()
     # Rendre le template HTML et transmettre les données
     return render_template('name_data.html', data=data)
+    
 
 if __name__ == "__main__":
   app.run(debug=True)
