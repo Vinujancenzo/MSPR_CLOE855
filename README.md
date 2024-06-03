@@ -33,7 +33,7 @@ Voici une vidéo d'accompagnement pour vous aider dans les "Forks" : [Forker ce 
 **Travail demandé :** Créé votre compte GitHUB, faites le fork de ce projet et **copier l'URL de votre Repository GitHUB dans la discussion Discord**.
 
 Notion acquise lors de cette séquence :  
-Vous avez appris lors de cette séquence à créer des Repository pour stocker et travailler avec votre code informatique. Vous pourez par la suite travailler en groupe sur un projet. Vous avez également appris à faire des Forks. C'est à dire, faire des copies de projets déjà existant dans GitHUB que vous pourrez ensuite adapter à vos besoins.
+Vous avez appris lors de cette séquence à créer des Repository pour stocker et travailler avec votre code informatique. Vous pourez par la suite travailler en groupe sur un projet. Vous avez également appris à faire des Forks. C'est à dire, faire des copies de projets déjà existant dans GitHUB que vous pourrez ensuite adapter à vos besoins. Fait.
   
 ---------------------------------------------------
 Séquence 2 : Création d'un hébergement en ligne
@@ -65,7 +65,7 @@ Voici une vidéo d'accompagnement pour vous aider dans cette séquence de créat
 **Travail demandé :** Mettre en ligne votre application Flask "Hello World !" et **copier l'URL de votre site dans la discussion Discord**.  
   
 Notions acquises lors de cette séquence :  
-Vous avez créer un hébergement (gratuit) et découvert également que vous pouvez installer bien d'autres applications (Django, Drupal, Jenkins, Magento, Symphony, etc...). Les perspectives sont nombreuses.
+Vous avez créer un hébergement (gratuit) et découvert également que vous pouvez installer bien d'autres applications (Django, Drupal, Jenkins, Magento, Symphony, etc...). Les perspectives sont nombreuses. Fait
 
 ---------------------------------------------------
 Séquence 3 : Les actions GitHUB (Industrialisation Continue)
@@ -183,7 +183,7 @@ Afin de pouvoir utiliser les API de la solution Alwaysdata (dans notre cas deman
 
 **ALWAYSDATA_SITE_ID** = Vous trouverez l'ID de votre site depuis l'interface d'administration Alwaysdata puis dans les paramètres de votre site. Il s'agit du petit engrenage à droite de votre site (dans le titre #XXXXX) XXXXX étant l'ID de votre site. Ne prenez pas le # mais juste les chiffres.
 
-Votre script CICD est à présent prêt à être déclanché. Celui-ci se déclenchera automatiquement à chaque Commit de votre code (c'est à dire à chaque modification de votre code dans Github). Procédez à une modification de votre code dans Github pour vérifier que votre action fonctionne bien correctement. Vous pouvez modifier ce Readme par exemple et faire ensuite votre Commit.    
+Votre script CICD est à présent prêt à être déclanché. Celui-ci se déclenchera automatiquement à chaque Commit de votre code (c'est à dire à chaque modification de votre code dans Github). Procédez à une modification de votre code dans Github pour vérifier que votre action fonctionne bien correctement. Vous pouvez modifier ce Readme par exemple et faire ensuite votre Commit.  Test.   
   
 Notions acquises de cette séquence :  
 Vous avez vu dans cette séquence comment créer des secrets GiHUB afin de mettre en place de l'industrialisation continue. Nous avons créé des secrets ainsi que des clés public et privée. L'utilité des scripts d'actions (C'est à dire des scripts exécutés lors des Commits) est très importante mais sortes malheureusement du cadre de cet atelier faute de temps. Toutefois, je vous invites à découvrir cet outil via les différentes sources du Web (Google, ChatGPT, etc..).  
