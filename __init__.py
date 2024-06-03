@@ -78,12 +78,22 @@ def enregistrer_client():
     return redirect('/consultation/')  # Rediriger vers la page d'accueil après l'enregistrement
 
 
+@app.route('/ulecture')
+def ulecture():
+    if not u_est_authentifie():
+        # Rediriger vers la page d'authentification si l'utilisateur n'est pas authentifié
+        return redirect(url_for('user_authentification'))
+
+    return redirect(url_for('fiche_nom/DUPONT'))
+
+
+
 @app.route('/user_authentification', methods=['GET', 'POST'])
 def user_authentification():
     if request.method == 'POST':
         if request.form['username'] == 'user' and request.form['password'] == '12345':
             session['authentifie'] = True
-            return redirect(url_for('lecture'))
+            return redirect(url_for('ulecture'))
         else:
             return render_template('user_auth.html', error=True)
 
