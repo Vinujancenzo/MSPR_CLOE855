@@ -75,17 +75,6 @@ def enregistrer_client():
     cursor.execute('INSERT INTO clients (created, nom, prenom, adresse) VALUES (?, ?, ?, ?)', (1002938, nom, prenom, "ICI"))
     conn.commit()
     conn.close()
-    return redirect('/consultation/')  # Rediriger vers la page d'accueil après l'enregistrement
-#Chercher en fonction du nom.
-@app.route('/fiche_nom/<str:post_nom>')
-def Readfiche(post_nom):
-    conn = sqlite3.connect('database.db')
-    cursor = conn.cursor()
-    cursor.execute('SELECT * FROM clients WHERE nom = ?', (post_nom,))
-    data = cursor.fetchall()
-    conn.close()
-    # Rendre le template HTML et transmettre les données
-    return render_template('read_data.html', data=data)
-                                                                                                                                       
+    return redirect('/consultation/')  # Rediriger vers la page d'accueil après l'enregistrement                                                                                                                                      
 if __name__ == "__main__":
   app.run(debug=True)
