@@ -83,7 +83,7 @@ def user_authentification():
     if request.method == 'POST':
         if request.form['username'] == 'user' and request.form['password'] == '12345':
             session['authentifie'] = True
-            return redirect(url_for('/fiche_nom/<post_nom>'))
+            return redirect(url_for('lecture'))
         else:
             return render_template('user_auth.html', error=True)
 
@@ -91,6 +91,8 @@ def user_authentification():
 
 @app.route('/fiche_nom/<post_nom>')
 def Readfiche_nom(post_nom):
+    if not est_authentifie():
+        return redirect(url_for('user_authentification'))
     conn = sqlite3.connect('database.db')
     cursor = conn.cursor()
     cursor.execute('SELECT * FROM clients WHERE nom = ?', (post_nom,))
