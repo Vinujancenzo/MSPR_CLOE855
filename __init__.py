@@ -78,6 +78,21 @@ def enregistrer_client():
     return redirect('/consultation/')  # Rediriger vers la page d'accueil après l'enregistrement
 
 
+
+"""@app.route('/ulecture')
+def ulecture():
+    if not u_est_authentifie():
+        # Rediriger vers la page d'authentification si l'utilisateur n'est pas authentifié
+        return redirect(url_for('user_authentification'))
+
+    return redirect(url_for('fiche_nom/DUPONT'))
+
+     if not est_authentifie():
+        # Rediriger vers la page d'authentification si l'utilisateur n'est pas authentifié
+        return redirect(url_for('authentification'))
+
+"""
+
 @app.route('/user_authentification', methods=['GET', 'POST'])
 def user_authentification():
     if request.method == 'POST':
@@ -90,6 +105,9 @@ def user_authentification():
     return render_template('user_auth.html', error=False)
 
 @app.route('/fiche_nom/<post_nom>')
+if not u_est_authentifie():
+        # Rediriger vers la page d'authentification si l'utilisateur n'est pas authentifié
+        return redirect(url_for('user_authentification'))
 def Readfiche_nom(post_nom):
     conn = sqlite3.connect('database.db')
     cursor = conn.cursor()
